@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from events.models import FeedEvent
+from events.models import BaseEvent, FeedEvent
 
 
 class FeedEventSerializer(serializers.ModelSerializer):
@@ -14,7 +14,7 @@ class FeedEventSerializer(serializers.ModelSerializer):
             "event"
         ]
 
-    def get_event(self, feed_event: FeedEvent):
+    def get_event(self, feed_event: FeedEvent) -> BaseEvent:
         event_object = feed_event.get_event_object()
         serializer = event_object.get_serializer()
         return serializer(event_object).data

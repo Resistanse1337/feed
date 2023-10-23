@@ -1,3 +1,4 @@
+from rest_framework import serializers
 from rest_framework.serializers import SerializerMetaclass
 
 
@@ -10,5 +11,5 @@ class SerializersRegistry(SerializerMetaclass):
         return new_cls
     
     @classmethod
-    def get_serializer(cls, serializer_name):
+    def get_serializer(cls, serializer_name) -> serializers.ModelSerializer:
         return cls.SERIALIZERS[serializer_name]
