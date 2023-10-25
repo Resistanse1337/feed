@@ -6,8 +6,8 @@ class EventsConfig(AppConfig):
     name = 'events'
 
     def ready(self) -> None:
-        from events.signals import create_event # noqa
-        import achievements.serializers # noqa
-        import ads.serializers # noqa
-        import notes.serializers # noqa
-        import events.models # noqa
+        import achievements.serializers  # noqa
+        import ads.serializers  # noqa
+        import events.models  # noqa
+        import notes.serializers  # noqa
+        from events.signals import create_event  # noqa

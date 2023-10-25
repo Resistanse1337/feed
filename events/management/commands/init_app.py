@@ -1,11 +1,12 @@
 from random import choice
+
 from django.conf import settings
 from django.core.files import File
 from django.core.management.base import BaseCommand
+
 from achievements.models import Achievement
 from ads.models import Ad
 from notes.models import Note
-
 from users.models import User
 
 

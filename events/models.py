@@ -1,9 +1,9 @@
 from django.db import models
+from django.db.models.signals import post_save
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
-from events.serializers_registry import SerializersRegistry
-from django.db.models.signals import post_save
 
+from events.serializers_registry import SerializersRegistry
 from users.models import User
 
 
@@ -28,7 +28,7 @@ class BaseEvent(models.Model):
     def get_serializer_name() -> str:
         raise NotImplementedError("You need to implement get_serializer_name method")
     
-    def get_serializer(self) -> serializers.ModelSerializer:
+    def get_serializer(self) -> type[serializers.ModelSerializer]:
         return SerializersRegistry.get_serializer(self.get_serializer_name())
 
     def create_event(self, user: User, serializer_name: str):

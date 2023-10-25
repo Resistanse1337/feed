@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from events.serializers_registry import SerializersRegistry
 
+from events.serializers_registry import SerializersRegistry
 from notes.models import Note
 
 

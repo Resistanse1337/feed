@@ -11,5 +11,5 @@ class SerializersRegistry(SerializerMetaclass):
         return new_cls
     
     @classmethod
-    def get_serializer(cls, serializer_name) -> serializers.ModelSerializer:
+    def get_serializer(cls, serializer_name) -> type[serializers.ModelSerializer]:
         return cls.SERIALIZERS[serializer_name]
